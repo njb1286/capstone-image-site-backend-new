@@ -253,9 +253,8 @@ def delete():
   if item == None:
     return jsonify({ "message": "Item not found" }), 404
 
-  print("Deleted item", item.to_string())
-
   db.session.delete(item)
+  db.session.commit()
   return jsonify({ "message": "Item deleted successfully!" }), 200
 
 @app.get("/api/generate-password")
