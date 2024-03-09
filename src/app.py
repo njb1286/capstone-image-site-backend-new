@@ -261,8 +261,8 @@ def delete():
 @app.get("/api/generate-password")
 @jwt_required()
 def generate_password():
-  random_bytes = secrets.token_bytes(16)
-  password = base64.b64encode(random_bytes).decode("utf-8")
+  random_bytes = secrets.token_bytes(64)
+  password = base64.b64encode(random_bytes).decode("utf-8")[0:16]
 
   password_row = TempPassword(password)
   db.session.add(password_row)
