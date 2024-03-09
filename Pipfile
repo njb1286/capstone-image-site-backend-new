@@ -13,7 +13,6 @@ marshmallow-sqlalchemy = "*"
 flask-jwt-extended = "*"
 gunicorn = "*"
 psycopg2 = "*"
-pyjwt = "*"
 
 [dev-packages]
 
