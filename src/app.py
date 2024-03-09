@@ -13,7 +13,7 @@ from io import BytesIO
 app = Flask(__name__, static_folder="../public")
 
 # basedir = os.path.abspath(os.path.dirname(__file__))
-# app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(basedir, "database.sqlite")
+# app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(basedir, "app.db")
 app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://tenektmchbtzwt:d2aa25c0f3583e35e56319a2f000ce8e65a19ccab3f5d4022686bd07af56d01b@ec2-52-54-200-216.compute-1.amazonaws.com:5432/d1urdfvdv2r472"
 
 app.config["JWT_SECRET_KEY"] = os.environ.get("TOKEN_KEY")
@@ -46,7 +46,7 @@ class Types:
   DATETIME: str = db.DateTime
   BOOLEAN: bool = db.Boolean
   FLOAT: float = db.Float
-  BLOB: bytes = db.BLOB
+  BLOB: bytes = db.LargeBinary
 
 class ImagesRow(db.Model):
   id = db.Column(Types.INTEGER, primary_key=True)
