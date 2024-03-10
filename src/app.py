@@ -14,7 +14,8 @@ app = Flask(__name__, static_folder="../public")
 
 # basedir = os.path.abspath(os.path.dirname(__file__))
 # app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(basedir, "database.sqlite")
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
+# app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URI")
 
 app.config["JWT_SECRET_KEY"] = os.environ.get("TOKEN_KEY")
 global_password = os.environ.get("SITE_PASSWORD")
